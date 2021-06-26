@@ -1,0 +1,4 @@
+Nessa pasta ficarão os arquivos do projeto do REACT NATIVE.
+Esses arquivos serão os criados e modificados durante o curso do aprendizado do framework.
+Eles não correspondem aos que serão utilizados no produto final.
+Entretanto, é interessante que mantenhamos eles no repositório para que possamos desde então realizar a integração entre o Front-End e o Back-End.
