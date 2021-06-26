@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro programa</title>
+    <style>
+        body{
+            background-color: rgb(163, 230, 207); /*Muda a cor de fundo*/
+            color: beige;
+            font: bold 15pt Arial;  /* Muda a fonte  e o tamanho dela */
+            
+        }
+        h1{
+            color: goldenrod;   /* Muda a cor do tema principal */
+        }
+        p{
+            color: slategray;   /* Muda a cor do parágrafo */
+        }
+    </style>
+</head>
+<body>
+    <h1>USPapo!</h1>
+    <p>Página de Eventos</p>
+    <script>
+        let n1 = Number(window.prompt('Digite um número'))//Converte de string para number(int)
+        let n2 = Number(window.prompt('Digite outro número'))//Converte de string para number(int)
+        let soma = n1 + n2
+        window.alert(`A soma entre ${n1} e ${n2} é ${soma}`)//adição
+        //usando template string...
+        //number + number para adição
+        //string + string para concatemação
+
+    </script>
+</body>
+</html>
