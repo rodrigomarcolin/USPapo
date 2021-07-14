@@ -11,9 +11,10 @@
     <title>USPapo</title>
 </head>
 <body>
-    <div class="header" style="background-color: #3495ab; display: flex; justify-content: space-between; margin-bottom: 2%;">
+    <div class="header" style="background-color: #3495ab; display: flex; justify-content: space-between; margin-bottom: 2%;" >
         <div class='logo'>
-            <img width="75px" height="auto" src="{% static 'images/Logo_Uspapo.png' %}" class="img-fluid">
+            <a href="{% url 'inicio' %}"><img width="75px" height="auto" src="{% static 'images/Logo_Uspapo.png' %}" class="img-fluid">
+            </a>
         </div>
         <div class='botoes' style="display: flex;">
             {% if not user.is_authenticated %}
@@ -28,7 +29,6 @@
             {% endif %}
         </div>
     </div>
-
         {% block content %}
         {% if not user.is_authenticated %}
     
