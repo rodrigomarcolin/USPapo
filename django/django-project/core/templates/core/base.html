@@ -1,0 +1,17 @@
+{% if user.is_authenticated %}
+
+Logado como {{ user.username }}
+
+<form action="{% url 'sair' %}" method="POST"> 
+    {% csrf_token %} 
+    <button type='submit'>Sair</button>
+</form>
+
+{% else %}
+
+<a href="{% url 'cadastro' %}">Cadastre-se</a>
+<a href="{% url 'entrar' %}">Entrar</a>
+
+{% endif %}
+
+{% block content %}{% endblock %}
