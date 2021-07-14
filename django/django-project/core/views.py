@@ -45,7 +45,7 @@ def sair(request):
 
 def inicio(request):
     eventos = Evento.objects.all()
-    return render(request, 'core/inicio.html', {"eventos":eventos})
+    return render(request, 'core/index.html', {"eventos":eventos})
 
 def perfil(request):
     atributos = Profile.objects.all()
