@@ -18,6 +18,9 @@ Foi desenvolvida uma API para permitir a interação do aplicativo frontend com 
 Neste repositório estão todos os arquivos de configuração e código utilizado na implementação. Dado que o projeto foi feito pensando na comunidade USP, nada mais justo que mantê-lo open-source para que ela possa modificá-lo e melhorá-lo conforme suas necessidades.
 
 Para realizar o site, utilizamos os seguintes templates de Bootstrap:
+
     -Postagens: https://www.bootdey.com/snippets/view/events-card-widget
+    
     -Perfil: https://www.bootdey.com/snippets/view/profile-with-data-and-skills
+    
     -Home: https://startbootstrap.com/previews/heroic-features
