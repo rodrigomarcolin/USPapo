@@ -27,6 +27,7 @@ urlpatterns = [
     path('perfil/', views.perfil , name='perfil'),
     path('', views.inicio, name = 'inicio'),
     path('', include('api.urls')),
+    path('postar/', views.postar, name='postar'),
 ] 
 
 if settings.DEBUG:

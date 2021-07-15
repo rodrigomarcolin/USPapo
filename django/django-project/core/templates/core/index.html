@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'core/css/styleTemplate.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'core/css/styleHome.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'core/css/stylePosts.css' %}" type="text/css">
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -28,7 +29,8 @@
             <a href="{% url 'entrar' %}"> <button class="btn btn-warning btn-lg">Entrar</button></a>
             {% endif %}
             {% if user.is_authenticated %}
-                <a href="{% url 'perfil' %}"><button class="btn btn-warning btn-lg">Perfil</button></a>
+                <a href="{% url 'postar' %}"><button style="margin-right: 20%;" class="btn btn-warning btn-lg">Postar</button></a>
+                <a href="{% url 'perfil' %}"><button class="btn btn-warning btn-lg" style="margin-left: 10%;" >Perfil</button></a>
                 <form action="{% url 'sair' %}" method="POST"> 
                     {% csrf_token %} 
                     <button type='submit' class="btn btn-danger btn-lg" style="margin-left: 20%;">Sair</button>
@@ -48,7 +50,7 @@
                         <div class="m-4 m-lg-5">
                             <h1 class="display-5 fw-bold">Bem-vindo(a) à USPapo.</h1>
                             <p class="fs-4">A rede social para uspianos. <br> Conecte-se, compartilhe, converse. <br> O melhor local para trocar experiências e se integrar à comunidade.</p>
-                            <a href="{% url 'cadastro' %}"><button class="btn btn-warning btn-lg">Cadastre-se</button></a>                        </div>
+                            <a href="{% url 'cadastro' %}"><button class="btn btn-warning btn-lg">Cadastre-se</button></a> 
                     </div>
                 </div>
             </header>
@@ -92,7 +94,7 @@
                         <div class="col-lg-6 col-xxl-4 mb-5">
                             <div class="card bg-light border-0 h-100">
                                 <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-4 mt-n4"></div>
+                                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-4 mt-n4"> <img style="max-width: 90%;" src="{% static 'images/lucas.png' %}" alt="Foto de Lucas Parra Sgarbosa"></div>
                                     <h2 class="fs-4 fw-bold"> Lucas Parra Sgarbosa </h2>
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Github: <strong>lucaspsg</strong></h6>
                                     <span class="text-secondary"></span>
@@ -102,7 +104,7 @@
                         <div class="col-lg-6 col-xxl-4 mb-5">
                             <div class="card bg-light border-0 h-100">
                                 <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-4 mt-n4"><img style="max-width: 85%;" src="" alt=""></div>
+                                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-4 mt-n4"> <img style="max-width: 92%;" src="{% static 'images/ian.jpg' %}" alt="Foto de Ian"></div>
                                     <h2 class="fs-4 fw-bold"> Ian Andrade de Magalhães </h2>
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Github: <strong>IanDrads</strong></h6>
                                 </div>
@@ -111,9 +113,9 @@
                         <div class="col-lg-6 col-xxl-4 mb-5">
                             <div class="card bg-light border-0 h-100">
                                 <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-4 mt-n4"></div>
+                                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-4 mt-n4"> <img style="max-width: 90%;" src="{% static 'images/eduardo.png' %}" alt="Foto de Eduardo Jardim Vieira Pereira dos Santos"></div>
                                     <h2 class="fs-4 fw-bold"> Eduardo Jardim V. P. dos Santos </h2>
-                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Github: <strong>EduardoJardim</strong></h6>
+                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Github: <strong><a></a>EduardoJardim</strong></h6>
                                 </div>
                             </div>
                         </div>
@@ -143,25 +145,62 @@
            <div class="col-lg-4">
             <div class="card card-margin">
                 <div class="card-header no-border">
-                    <h5 class="card-title"> {{ evento.titulo }}</h5>
+                    <h5 class="card-title">{{ evento.titulo }}</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
                         <div class="widget-49-title-wrapper">
-                            
-                            <div class="widget-49-date-primary">
-                                <span class="widget-49-date-day"> Data: {{ evento.datahora }}</span>
+                            {% if evento.categoria == 'Jogos' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 90%; border-radius: 50%;" src="{% static 'images/jogo.jpg' %}" alt="foto do evento">
                             </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Música' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 93%; border-radius: 50%;" src="{% static 'images/musica.png' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Estudo' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 94%; border-radius: 50%;" src="{% static 'images/estudo.png' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Conversa' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 93%; border-radius: 50%;" src="{% static 'images/resenha.png' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Filme' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 90%; border-radius: 50%;" src="{% static 'images/filme.jpeg' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Esporte' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 85%; border-radius: 50%;" src="{% static 'images/esporte.png' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Palestra' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="max-width: 90%; border-radius: 50%;" src="{% static 'images/palestra.png' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
+                            {% if evento.categoria == 'Live' %}
+                            <div class="widget-49-date-warning bg-uspapoyellow">
+                                <img style="width: 88%; border-radius: 50%;" src="{% static 'images/live.png' %}" alt="foto do evento">
+                            </div>
+                            {% endif %}
                             <div class="widget-49-meeting-info">
-                                <span class="widget-49-meeting-time"> Categoria: {{ evento.categoria }} </span>
-                                <br>
-                                <span class="widget-49-pro-title">Descrição: {{ evento.descricao }}</span>
-
+                                <span class="widget-49-pro-title">{{ evento.categoria }}</span>
+                                <span class="widget-49-meeting-time" style="color: black;">{{ evento.datahora }}</span>
                             </div>
                         </div>
-                      
+                        <ul class="widget-49-meeting-points">
+                            <li class="widget-49-meeting-item"><span>{{ evento.descricao }}</span></li>
+                            <li class="widget-49-meeting-item"><span> Link: {{ evento.link }} </span></li>
+                        </ul>
                         <div class="widget-49-meeting-action">
-                            <a href="#" class="btn btn-sm btn-flash-border-primary"> Autor: {{ user.first_name }}</a>
+                            <button type="submit" class="btn btn-outline-danger btn-sm btn-flash-border-warning"> Deletar</button>
                         </div>
                     </div>
                 </div>

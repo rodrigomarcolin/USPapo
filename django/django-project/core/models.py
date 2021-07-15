@@ -39,5 +39,6 @@ class Evento(models.Model):
     longitude = models.FloatField(blank=True, default=0)
     datahora = models.CharField(max_length = 128, default='banana')
     owner = models.ForeignKey(User, related_name='eventos', on_delete=models.CASCADE, default=1)
+    link = models.CharField(max_length=256, default="discord.gg/teste")
     def __str__(self):
         return self.titulo

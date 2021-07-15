@@ -6,7 +6,7 @@ class EventoSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Evento
-        fields = ('id', 'titulo', 'descricao', 'categoria', 'criado_data', 'criado_hora', 'modificado_data', 'modificado_hora', 'datahora','owner')
+        fields = ('id', 'titulo', 'descricao', 'categoria', 'criado_data', 'criado_hora', 'modificado_data', 'modificado_hora', 'datahora','owner', 'link')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     eventos = serializers.HyperlinkedRelatedField(many=True, view_name='evento-detail', read_only=True)

@@ -45,8 +45,12 @@ def sair(request):
 
 def inicio(request):
     eventos = Evento.objects.all()
+    eventos = list(reversed(eventos))
     return render(request, 'core/index.html', {"eventos":eventos})
 
 def perfil(request):
     atributos = Profile.objects.all()
     return render(request, 'core/perfil.html')
+
+def postar(request):
+    return render(request, 'core/postar.html' )
